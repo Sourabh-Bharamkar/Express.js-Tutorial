@@ -4,14 +4,10 @@ const app=express();
 const router=express.Router();
 const path=require('path')
 const rootDir=require('../util/path')
+const contactControllers=require('../controllers/contact')
 
-router.get('/contact',(req,res)=>{
-    res.sendFile(path.join(rootDir,'views','/contact.html'))
-})
+router.get('/contact',contactControllers.getContactForm)
 
-router.get('/success',(req,res)=>{
-    res.sendFile(path.join(rootDir,'views','/success.html'))
-
-})
+router.get('/success',contactControllers.getContactFormSuccessMessage)
 
 module.exports=router;

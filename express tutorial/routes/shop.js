@@ -4,9 +4,8 @@ const app=express();
 const router=express.Router();
 const path=require('path')
 const rootDir=require('../util/path')
+const productControllers=require('../controllers/product')
 
-router.get('/',(req,res)=>{
-    res.sendFile(path.join(rootDir,'views','/shop.html'))
-})
+router.get('/',productControllers.getProducts)
 
 module.exports=router;
