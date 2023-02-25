@@ -1,37 +1,27 @@
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 
-//importing database connection pool managed by sequelize
-const sequelize = require('../util/database')
+const sequelize = require('../util/database');
 
-const Product = sequelize.define('products', {
+const Product = sequelize.define('product', {
   id: {
     type: Sequelize.INTEGER,
-    autoIncreament: true,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-
-  title: {
-    type: Sequelize.STRING
+  title: Sequelize.STRING,
+  price: {
+    type: Sequelize.DOUBLE,
+    allowNull: false
   },
-
-  price:{
-    type:Sequelize.DOUBLE,
-    allowNull:false
+  imageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
-
-  imageUrl:{
-    type:Sequelize.STRING,
-    allowNull:false
-
-  },
-
-  description:{
-    type:Sequelize.STRING,
-    allowNull:false
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
+});
 
-
-})
-
-module.exports=Product;
+module.exports = Product;
